@@ -1,0 +1,3 @@
+<?php
+	echo 'chan<br/>';
+?>

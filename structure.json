@@ -1,0 +1,11 @@
+{
+	"docType"	:	"user",
+	"_id"		:	"email",
+	"name"		:	"userName",
+	"password"	:	"password",
+	"age"		:	 22,
+	"isTourist"	:	true,
+	"isServicePro"	:	false,
+	"country"	:	"sri lanka"
+}
+	
