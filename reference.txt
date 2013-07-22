@@ -8,7 +8,7 @@ Trip
 	-date
 		-strt-start date
 		-end- end date
-	-trvlr- traveller
+	-scrn- traveller
 	-tag- tags
 	-mode- travel mode
 
@@ -20,12 +20,12 @@ tags
 	-tgnm- Tag name
 	-ttyp- tag type
 	-prnt- parent of
-	-child- child of 
+	-chld- child of 
 Bid
 	-bdby- bid by
 	-btym- bid time
 	-tid- trip id
-	-trvlr- screen name 
+	-scrn- screen name 
 	-scat- service category
 	-btxt- bid text
 	
