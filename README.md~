@@ -15,9 +15,6 @@ git pull origin master
 git branch "chan4lk"
 git chechout chan4lk
 
-#to pull branch
-git pull origin chan4lk
-
 #to push branch
 git put origin chan4lk
 
