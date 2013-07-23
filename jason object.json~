@@ -1,0 +1,85 @@
+	{
+        "user":     [
+		   {
+			"urN"       :    "user_name",
+			"scrN"      :    "screen_name",
+			"Mail"      :    "e_mail"  ,    
+		        "urTy"      :    ["tourist","service provider"],
+			"dId"       :    "device_id"
+		   } 
+		 ] 
+	}
+
+
+
+	{
+	"traveller":[
+		   {
+        
+			"_id"       :       "email",
+			"likes"     :       [
+				                {"food":[]},
+				                {"culture":[]},
+				                {"places":[]}                           
+				                ],
+			"       
+        	   }
+		  ]
+        }
+
+
+	 {
+	 "partner": [
+		   {
+			"ctg"       :      ["accomadation","guids","transport","dinning"],
+			"loc"       :      [{
+
+                                               "cnty"     :  "country",
+                                               "cty"      :  "city" 
+                                           }]
+                   }
+                  ]  
+         }
+
+
+         
+         {
+         "trip"   :  [
+                     {
+                        "star"      :      "star_time",
+                        "end"       :      "end_time",   
+                        "scrN"      :      "screen_name", 
+                        "tag"       :      [],  
+                     } 
+                     ] 
+         }
+
+
+
+
+
+
+         {
+         "tag"  :[
+                   {
+                       "tgTy"       :      "tag_type",
+                       "tgN"        :      "tag_name",
+                       "gph"        :      "graph" 
+                   }
+                  ]
+         }
+
+
+
+
+         {
+         "bid"   :[{
+                       "scrN"       :      "screen_name",            
+                       "tstm"       :      "time_stamp",   
+                       "tId"        :      "trip_id",  
+                       "pId"        :      "partner_id",             
+                       "bTx"        :      "bid_text",
+                       "pCtg"       :      ["accomadation","guids","transport","dinning"]
+		   }  
+                  ]
+         }
