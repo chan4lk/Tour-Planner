@@ -7,12 +7,12 @@
 <body>
 	<?php
 	
-		if(isset($_POST['submit']))
+		if(isset($_GET['submit']))
 		{
 			$name = $_GET['name'];
 			$scrn = $_GET['scrn'];
 			$mail = $_GET['mail'];
-			$did  = $_GET['dit'];
+			$did  = $_GET['did'];
 			
 			
 		$conn = new MongoClient();
