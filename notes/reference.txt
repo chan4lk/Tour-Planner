@@ -1,0 +1,34 @@
+User
+	-name- name
+	-scrn- screen name
+	-mail- E mail
+	-did- device id
+
+Trip
+	-date
+		-strt-start date
+		-end- end date
+	-scrn- traveller
+	-tag- tags
+	-mode- travel mode
+
+Partner
+	-scat- service category
+	-sloc- service location
+	
+tags
+	-tgnm- Tag name
+	-ttyp- tag type
+	-prnt- parent of
+	-chld- child of 
+Bid
+	-bdby- bid by
+	-btym- bid time
+	-tid- trip id
+	-scrn- screen name 
+	-scat- service category
+	-btxt- bid text
+	
+
+
+
