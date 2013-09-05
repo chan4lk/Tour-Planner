@@ -1,6 +1,5 @@
 <?php
-	
-	class UsersController {		
+	class UsersController {
 		public function __construct(){
 			//mongo dharma.mongohq.com:10075/traveller -u <user> -p<password>
 			//mongodb://chan4lk:chan4cha2@dharma.mongohq.com:10075/traveller
@@ -12,23 +11,23 @@
 			$this->users = new MongoCollection($db, 'user');
 		}
 		public function GETAction($param) {
-			
+
 			if($param[2]=='find'){
 				if(isset($param[3])){
-					$scrn = $param[3];		
+					$scrn = $param[3];
 					$sweetQuery = array('scrn'=>$scrn);
-					$cursor = $this->users->findOne($sweetQuery);	
-					header('201 Created', true, 201);		
-					header('Content-Type: application/json; charset=utf-8');			
+					$cursor = $this->users->findOne($sweetQuery);
+					header('201 Created', true, 201);
+					header('Content-Type: application/json; charset=utf-8');
 					return json_encode($cursor) ;
 				}
 				else{
 					$form = "<form id='myfrm' method='POST' action='/users/find'>
-						<table>			
+						<table>
 							<tr>
-							<td>Screen Name:</td> 
+							<td>Screen Name:</td>
 							<td><input type='text' name='scrn'/></td>
-							</tr>			
+							</tr>
 							<tr>
 							<td></td>
 							<td><input type='submit' value='find' name='submit'/></td>
@@ -39,10 +38,10 @@
 				}
 			}//end find
 			else if($param[2]=='add'){
-				$form = "<form id='myfrm' method='POST' action='/users/add'><table><tr><td>Name :</td> 
-				<td><input type='text' name='urN'/></td></tr><tr><td>Screen Name:</td> 
-				<td><input type='text' name='scrn'/></td></tr><tr><td>Email:</td> 
-				<td><input type='text' name='mail'/></td></tr><tr><td>User Type:</td> 
+				$form = "<form id='myfrm' method='POST' action='/users/add'><table><tr><td>Name :</td>
+				<td><input type='text' name='urN'/></td></tr><tr><td>Screen Name:</td>
+				<td><input type='text' name='scrn'/></td></tr><tr><td>Email:</td>
+				<td><input type='text' name='mail'/></td></tr><tr><td>User Type:</td>
 				<td><select name='UrTy'>
 					<option value='tourist'>Tourist</option>
 					<option value='service provider'>Service provider</option>
@@ -55,7 +54,7 @@
 			}//end GETAction
 
 		public function POSTAction($param){
-			$data = $_POST;			
+			$data = $_POST;
 			if($param[2]=='add'){
 			if(isset($data['submit'])){
 				$urN  = $data['urN'];
@@ -63,12 +62,12 @@
 				$mail = $data['mail'];
 				$urTy = 'tourist';
 				$did  = $data['did'];
-			
+
 				$user = new User($urN, $scrn, $mail,$urTy, $did);
 				$this->users->insert($user);
-			
+
 				//header('201 Created', true, 201);
-				//header('Content-Type: application/json; charset=utf-8');	
+				//header('Content-Type: application/json; charset=utf-8');
 				header("Location: /users/find/$scrn");
 				return json_encode($user);
 			}
@@ -76,7 +75,7 @@
 			return 'not submited';
 			}//end addd
 			if($param[2]=='find'){
-				$scrn =$data['scrn']; 
+				$scrn =$data['scrn'];
 				header("Location: /users/find/$scrn");
 				return $html;
 			}//end find
@@ -95,4 +94,4 @@
 			return json_encode($user);
 			}
 		}
-?>	
+?>
