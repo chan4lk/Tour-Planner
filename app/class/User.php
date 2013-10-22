@@ -53,6 +53,10 @@
 			$this->setType(self::TYPE_TRAVELLER);
 		}
 
+		public static function get($userName){
+			throw new Exception(__METHOD__.' user `'.$userName.'` not found',200);
+		}
+
 		public static function find(){
 
 		}

@@ -5,6 +5,7 @@
 	define(__DS, $conn->selectDB('traveller'));
 
 	switch (__ROUTER_PATH){
+		case (substr(__ROUTER_PATH,0,10) == '/users/get'):
 		case '/users/add':
 		case '/users/find':	require_once 'users.ctrl.php';	break;
 
