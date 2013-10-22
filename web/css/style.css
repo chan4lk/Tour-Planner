@@ -347,7 +347,7 @@ p {
 }
 /*------ list-services ------- */
 .list-services .thumbnail-1 {
-  background: #000000;
+  background: #111;
   padding: 10px;
 }
 .list-services a {
@@ -534,7 +534,7 @@ p {
   padding: 10px 0 0;
   overflow: hidden;
 }
-#search input {
+#search input[type=text] {
   background: #ffffff;
   border: none;
   -webkit-box-shadow: none;
@@ -554,7 +554,7 @@ p {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#search input:focus {
+#search input[type=text]:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -627,8 +627,7 @@ p {
   min-height: 343px;
   width: 100%;
 }
-#contact-form input,
-#contact-form textarea {
+#contact-form input[type=text][type=text], #contact-form textarea {
   font-family: 'Open Sans', sans-serif;
   padding: 4px 18px 5px;
   margin: 0;
@@ -649,11 +648,10 @@ p {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#contact-form input {
+#contact-form input[type=text] {
   height: 30px;
 }
-#contact-form input:focus,
-#contact-form textarea:focus {
+#contact-form input[type=text]:focus, #contact-form textarea:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -779,7 +777,7 @@ p {
   overflow: hidden;
   position: relative;
 }
-#form-search input {
+#form-search input[type=text] {
   background: #e5e5e5;
   border-top: 1px solid #c3c3c3;
   border-right: 1px solid #d9d9d9;
@@ -802,7 +800,7 @@ p {
   box-sizing: border-box;
   float: left;
 }
-#form-search input:focus {
+#form-search input[type=text]:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -869,10 +867,10 @@ footer {
     height: 393px;
     float: left;
   }
-  #search input {
+  #search input[type=text] {
     width: 286px;
   }
-  #form-search input {
+  #form-search input[type=text] {
     width: 216px;
   }
   .box-404 {
@@ -895,12 +893,12 @@ footer {
   }
 }
 @media (max-width: 1300px) {
-  #search input {
+  #search input[type=text] {
     width: 200px;
   }
 }
 @media (max-width: 979px) {
-  #search input {
+  #search input[type=text] {
     width: 127px;
   }
   .block-404 .img-404 {
@@ -912,8 +910,7 @@ footer {
   #contact-form label {
     display: block;
   }
-  #contact-form input,
-  #contact-form textarea {
+  #contact-form input[type=text], #contact-form textarea {
     width: 100%;
   }
   .inner-1 {
@@ -969,11 +966,10 @@ footer {
   .img-indent img {
     width: 100%;
   }
-  #contact-form input,
-  #contact-form textarea {
+  #contact-form input[type=text], #contact-form textarea {
     width: 100%;
   }
-  #form-search input {
+  #form-search input[type=text] {
     width: 74%;
   }
 }
@@ -1144,7 +1140,7 @@ footer {
   .thumbnail-1 > img {
     width: 100%;
   }
-  #form-search input {
+  #form-search input[type=text] {
     width: 70%;
   }
   .portfolio {
@@ -1158,7 +1154,7 @@ footer {
   .portfolio li img {
     width: 100%;
   }
-  #search input {
+  #search input[type=text] {
     width: 66%;
   }
   .thumbnails-1 .thumbnail-1 img {
@@ -1283,13 +1279,13 @@ footer {
     margin: 0 0 20px 0;
     width: 100%;
   }
-  #form-search input {
+  #form-search input[type=text] {
     width: 100%;
   }
-  #search input {
+  #search input[type=text] {
     width: 66%;
   }
-  #form-search input {
+  #form-search input[type=text] {
     width: 66%;
   }
   footer {
@@ -1343,7 +1339,7 @@ footer {
   .list-photo li img {
     width: 100%;
   }
-  #search input {
+  #search input[type=text] {
     width: 61%;
   }
   .img-indent1 {
@@ -1353,7 +1349,7 @@ footer {
   .overflow.extra {
     overflow: visible;
   }
-  #form-search input {
+  #form-search input[type=text] {
     width: 57%;
   }
 }
@@ -1376,7 +1372,7 @@ footer {
   background-color: transparent;
   border: 0;
 }
-.input-block-level {
+.input[type="text"]-block-level {
   display: block;
   width: 100%;
   min-height: 30px;
