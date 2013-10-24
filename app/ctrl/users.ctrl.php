@@ -1,18 +1,15 @@
 <?php
-	include_once 'class/user.class.php';
-
 /**
-* @author Chandima Ranaweera
-*/
-	$GLOBALS['data'] =array();    //json Array
-	$data=array();	
-	$ds = MongoConnect::connect();
+ * @author Chandima Ranaweera
+ */	
+	include_once 'class/user.class.php';
+		
 	 try {
                 if(__ROUTER_PATH == '/users/add'){
                         $n = new User();
-                        $name = $screenName = $email = null;
+                        $name = $screenName =$password= $email = null;
                         extract($_POST,EXTR_IF_EXISTS);
-                        $n->setName($name)->setEmail($email)->setScreenName($screenName)->update();
+                        $n->setName($name)->setEmail($email)->setScreenName($screenName)->setPassword($password)->update();
                 }
 
                 if(substr(__ROUTER_PATH,0,10) == '/users/get'){
@@ -21,8 +18,9 @@
                                 $user = User::get($matches[1]);
                         }
                         else {
-                                throw new Exception(__METHOD__.'invalid username',200);
+                                throw new Exception(__METHOD__.'invalid username',_status_not_found);
                         }
+                        echo json_encode($user);
                 }
 
 				 if(substr(__ROUTER_PATH,0,11) == '/users/find'){
@@ -32,18 +30,30 @@
                                 echo json_encode($user);
                         }
                         else {
-                                throw new Exception(__METHOD__.'invalid username',200);
+                                throw new Exception(__METHOD__.'invalid username',_status_not_found);
                         }
+                }
+                if(__ROUTER_PATH=='/users/login')
+                {                	
+                	$screenName=$password=null;
+                	extract($_POST,EXTR_IF_EXISTS);
+                	$login=array('scrn'=>$screenName,'pass'=>$password);
+                	$u=User::get($screenName);
+                	if($u['pass']==sha1($password))
+                	{
+                		throw new Exception(__METHOD__.' user exists ',_status_success);
+                	}
+                	else 
+                	{
+                		throw new Exception(__METHOD__.'user not found',_status_not_found);
+                	}
                 }
         }
         catch (Exception $e){
                 echo json_encode(array(
-                                'code' => $e->getCode(),
-                                'msg' => $e->getMessage()
+                                'msg' => $e->getMessage(),
+                				'code' => $e->getCode()
                 ));
-        }
-
-	
-	
+        }	
 
 ?>	

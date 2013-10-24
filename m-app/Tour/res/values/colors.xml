@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name ="background">#292929</color>
+    <color name ="textColor">#BDBDBD</color>
+    <color name ="edittext">#989898</color>
+    <color name ="dividerColor">#9E9E9E</color>
+    
+</resources>

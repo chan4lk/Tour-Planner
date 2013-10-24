@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.tour"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    
+   
+   
+   
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    
+     <supports-screens
+        android:xlargeScreens="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:anyDensity="true"/>
+    
+     <permission android:name="com.example.tour.maps.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+     <uses-permission android:name="com.example.tour.maps.permission.MAPS_RECEIVE"/>
+
+   <uses-feature
+    android:glEsVersion="0x00020000"
+    android:required="true"/>
+   
+   
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+      <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+       <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+   
+     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <uses-library android:required="true" android:name="com.google.android.maps" />
+        
+         
+<meta-data
+    android:name="com.google.android.maps.v2.API_KEY"
+    android:value="AIzaSyD7eaG17P8oDUe1rFz5dbEzwZ469NCjPNU"/>
+   
+
+       
+         <activity
+            android:name="com.example.tour.Lodding"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER"
+                     />
+            </intent-filter>
+           
+        </activity>
+        
+    
+           
+        <activity android:name=".UserMenu"></activity>
+         <activity android:name=".SelectUser"></activity>
+        <activity android:name=".Tour"></activity>
+        <activity android:name=".Map"></activity>
+         <activity android:name=".Locations"></activity>
+        <activity android:name=".Prefer"></activity>
+          <activity android:name=".Services"></activity>
+           <activity android:name=".user_details"></activity>
+                <activity android:name=".ServieProvider_menu"></activity>
+                
+          
+          
+        <activity android:name="com.example.tour.list_view.ListActivity"></activity>
+               <activity android:name="com.example.tour.list_view.ListViewAdapter"></activity>
+               <activity android:name="com.example.tour.list_view.SingleItemView"></activity>
+          
+          
+    </application>
+   
+
+</manifest>

@@ -1,0 +1,211 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:padding="7dp"
+    android:weightSum="100"
+    tools:context=".Tour" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="30dip"
+            android:text="Enter your details "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" 
+            android:textColor="@color/textColor"/>
+
+    </LinearLayout>
+
+      <View 
+        android:id="@+id/v1"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        android:padding="2dp"/> 
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:paddingTop="10dp" 
+        >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select country -"
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_gravity="center"
+            android:textColor="@color/textColor"/>
+
+    </LinearLayout>
+    
+    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_weight="10">
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+      <View 
+        android:id="@+id/v2"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        android:padding="2dp"/> 
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duration -"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/textColor"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="time" 
+            android:text="Start date"
+            android:layout_gravity="center">
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="time"
+            android:text="End date" 
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    
+    <View 
+        android:id="@+id/v3"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        android:padding="2dp"/> 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="7">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You are going with -"
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_gravity="center"
+            android:textColor="@color/textColor"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="43" >
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="along" 
+                android:textColor="@color/textColor"/>
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="with partner"
+                android:textColor="@color/textColor" />
+
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="with family" 
+                android:textColor="@color/textColor"/>
+            <RadioButton
+                android:id="@+id/radio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="with group" 
+                android:textColor="@color/textColor"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+     <View 
+        android:id="@+id/v4"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        android:padding="2dp"/> 
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:padding="12dp" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/button_style2"
+            android:text="Continue"
+            android:layout_gravity="bottom" 
+            android:paddingTop="10dp"/>
+
+    </LinearLayout>
+   
+</LinearLayout>

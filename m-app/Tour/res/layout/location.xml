@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"  
+    android:background="@color/background">
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="325dip"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="17dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginLeft="15dip"
+        android:divider="#ffffff"
+        android:dividerHeight="5dp"
+        android:layout_marginBottom="10dip"
+       android:background="@drawable/customize2" >
+    </ListView>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="400dip"
+        android:layout_height="40dip"
+        android:layout_alignLeft="@+id/listView1"
+        android:layout_alignRight="@+id/listView1"
+        android:layout_below="@+id/listView1"
+        android:layout_marginTop="5dip"
+        android:background="@drawable/button_style2"
+        android:gravity="center"
+        android:text="Continue"
+        android:layout_marginBottom="7dip" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/listView1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dip"
+        android:text="Find Your Locations"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColor"
+         android:textStyle="bold"
+        android:textSize="25sp" />
+
+</RelativeLayout>
