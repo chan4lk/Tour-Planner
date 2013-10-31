@@ -3,15 +3,16 @@ include_once 'class/user.class.php';
 class Trip {
 	private $data = array();
 	
-	public static function get($tripID) {
+	public static function get($scrn) {
 		try {
-			$sweetQuery = array('_id'=>$tripID);
-			$res =MongoConnect::getInstance()->trips->findOne($sweetQuery);
+			$sweetQuery = array('scrn'=>$scrn);
+			$res =MongoConnect::getInstance()->trips->find($sweetQuery);
+			return $res;
 		} catch (Exception $e) {
-			throw new Exception(__METHOD__.'Trip not found',_status_notfound);
+			throw new Exception(__METHOD__.'Trip(s) not found',_status_not_found);
 		}
 		
-		return $res;	
+			
 	}
 	
 	public function __construct() {
@@ -56,7 +57,7 @@ class Trip {
 			$this->data['scrn']=$user;
 		}
 		else 
-			throw new Exception(__METHOD__.' user not found ',_status_notfound);
+			throw new Exception(__METHOD__.' user not found ',_status_not_found);
 		return $this;
 		
 	}
@@ -81,8 +82,13 @@ class Trip {
 		return $this;
 	}
 	public function setCountry($country) {
-		$this->data['cnty']=$country;
-		return $this;
+	if(is_string($country)){
+			$this->data['cnty']=$country;
+			return $this;
+		}
+		else{
+			throw new Exception(__METHOD__.'country name is not valid', _status_mismatch);
+		}
 	}
 	public function setChildren($children) {
 		try {

@@ -7,9 +7,9 @@
 	 try {
                 if(__ROUTER_PATH == '/users/add'){
                         $n = new User();
-                        $name = $screenName =$password= $email = null;
+                        $name = $screenName =$password= $email =$type= null;
                         extract($_POST,EXTR_IF_EXISTS);
-                        $n->setName($name)->setEmail($email)->setScreenName($screenName)->setPassword($password)->update();
+                        $n->setName($name)->setType($type)->setEmail($email)->setScreenName($screenName)->setPassword($password)->update();
                 }
 
                 if(substr(__ROUTER_PATH,0,10) == '/users/get'){
@@ -41,7 +41,7 @@
                 	$u=User::get($screenName);
                 	if($u['pass']==sha1($password))
                 	{
-                		throw new Exception(__METHOD__.' user exists ',_status_success);
+                		throw new Exception($u['type'],_status_success);
                 	}
                 	else 
                 	{

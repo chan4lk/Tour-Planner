@@ -13,9 +13,12 @@
 		}
 		public function setPassword($password)
 		{
-		if(is_string($password) && preg_match('([0-9a-z-_A-Z]{5,12})',$password) ) {
+			if(is_string($password) && preg_match('([0-9a-z-_A-Z]{5,12})',$password) ) {
 				$this->data['pass'] = sha1($password);
 				return $this;
+			}
+			else {
+				throw new Exception(__METHOD__.'password is not valid', _status_mismatch);
 			}
 		}
 
@@ -25,21 +28,26 @@
 				return $this;
 			}
 
-			throw new Exception(__METHOD__.' screeName does not meet the criteria '.$screenName,4003);
+			throw new Exception(__METHOD__.' screeName does not meet the criteria '.$screenName,_status_mismatch);
 		}
 
 		private function isScreenNameAvailable(){
 			$sweetQuery = array('scrn'=>$this->data['scrn']);
 			$cursor = MongoConnect::getInstance()->user->find($sweetQuery);
 			if($cursor->hasNext())
-				throw new Exception(__METHOD__.' screeName already exists',4001);			
+				throw new Exception(__METHOD__.' screeName already exists',_status_already_exists);			
 			else 
 				return true;
 		}
 
 		public function setEmail($email){
+			if(is_string($email)){
 			$this->data['mail'] = $email;
 			return $this;
+			}
+			else {
+				throw new Exception(__METHOD__.' email not valid ',_status_mismatch);
+			}
 		}
 
 		public function setDeviceID($deviceId){
@@ -49,18 +57,18 @@
 
 		public function setType($type){
 			if(in_array($type, array(User::TYPE_SUPPLIER,User::TYPE_TRAVELLER))) {
-				$this->data['urTy'] = $type;
+				$this->data['type'] = $type;
 				return $this;
 			}
 
-			throw new Exception(__METHOD__.' invalid type specified',4003);
+			throw new Exception(__METHOD__.' invalid type specified',_status_mismatch);
 		}
 
 		public function update(){	
 			if($this->isScreenNameAvailable()){		
 			MongoConnect::getInstance()->user->insert($this->data);
 			}
-			throw new Exception(__METHOD__.' user added successful',200);
+			throw new Exception(__METHOD__.' user added successful',_status_success);
 		}
 
 		public function __construct(){			
@@ -78,7 +86,7 @@
 			}
 			catch (Exception $e)
 			{
-				throw new Exception(__METHOD__.' user not found',404);
+				throw new Exception(__METHOD__.' user not found',_status_not_found);
 			}
 			
 		}
@@ -86,7 +94,7 @@
 			$sweetQuery = array('scrn'=>$screenName);
 			$res =MongoConnect::getInstance()->user->findOne($sweetQuery);
 			if(empty($res)){
-				throw new Exception(__METHOD__.' user not found',404);
+				throw new Exception(__METHOD__.' user not found',_status_not_found);
 			}
 			return $res;
 			}
