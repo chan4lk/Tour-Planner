@@ -18,8 +18,9 @@
                                 $user = User::get($matches[1]);
                         }
                         else {
-                                throw new Exception(__METHOD__.'invalid username',_status_not_found);
+                                throw new Exception('user not exist',_status_not_found);
                         }
+                        header('Content-Type:application/json');
                         echo json_encode($user);
                 }
 
@@ -27,7 +28,8 @@
                         $matches = array();
                         if(preg_match('/^\/users\/find\/([0-9a-z-_A-Z]{2,32})$/', __ROUTER_PATH, $matches)) {
                                 $user = User::find($matches[1]);
-                                echo json_encode($user);
+                                header('Content-Type:application/json');
+                                echo json_encode(array("success"=>$user));
                         }
                         else {
                                 throw new Exception(__METHOD__.'invalid username',_status_not_found);
@@ -50,6 +52,7 @@
                 }
         }
         catch (Exception $e){
+        		header('Content-Type:application/json');
                 echo json_encode(array(
                                 'msg' => $e->getMessage(),
                 				'code' => $e->getCode()

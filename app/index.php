@@ -6,7 +6,7 @@
 	require_once __DIR__.'/class/mongo.class.php';
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL);
-	
+	date_default_timezone_set("Asia/Colombo");
 	/*
 	 * status codes 
 	 */
@@ -30,6 +30,9 @@
 		case '/':
 			echo "we are on root";
 			break;
+		case '/test':
+			require_once __DIR__.'/ctrl/test.ctrl.php';
+			break;
 		case '/rock':
 			header("Location:/rockmongo");
 			break;
@@ -37,10 +40,11 @@
 		case (substr(__ROUTER_PATH,0,11) == '/users/find'):
         case '/users/add':
         case '/users/login':
-        case '/users/find':     require_once __DIR__.'/ctrl/users.ctrl.php';  
+       	    require_once __DIR__.'/ctrl/users.ctrl.php';  
         	break;
         case '/trips/add':
         case (substr(__ROUTER_PATH,0,11) == '/trips/find'):
+        case (substr(__ROUTER_PATH,0,10) == '/trips/get'):
         	require_once __DIR__.'/ctrl/trips.ctrl.php';
         	break;
         case '/preferances/find':
@@ -50,8 +54,21 @@
         	require_once __DIR__.'/ctrl/locations.ctrl.php';
         	break;
         case '/services/add':
+        case (substr(__ROUTER_PATH,0,13) == '/services/get'):
+        case (substr(__ROUTER_PATH,0,14) == '/services/find'):
         	require_once __DIR__.'/ctrl/services.ctrl.php';
         	break;
+        case '/specialoffer/add':
+        case '/specialoffer/find':
+       	case (substr(__ROUTER_PATH,0,17) == '/specialoffer/get'):	
+        	require_once __DIR__.'/ctrl/specialoffer.ctrl.php';
+        	break;
+       	case '/bids/add':
+       	case '/bids/acpt':
+       	case (substr(__ROUTER_PATH,0,10) == '/bids/find'):
+       	case (substr(__ROUTER_PATH,0,9) == '/bids/get'):
+       		require_once __DIR__.'/ctrl/bid.ctrl.php';
+       		break;
 		default:
 			echo __ROUTER_PATH;
 			break;
